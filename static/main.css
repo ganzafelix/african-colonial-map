@@ -1,0 +1,124 @@
+/* General styles */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f5e0;
+    }
+    
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    /* Navbar styles */
+    .navbar {
+      background-color: #f8f9fa; /* Light gray background */
+      padding: 15px;
+    }
+    .color{
+      background-color: rgb(207, 219, 179);
+    }
+    
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5em;
+    }
+    
+    .navbar-nav .nav-link {
+      margin-right: 10px;
+    }
+    
+    .navbar-nav .nav-link:hover {
+      color: #007bff; /* Blue on hover */
+    }
+    
+    /* Search form styles */
+    .d-flex {
+      margin-left: auto; /* Push search bar to the right */
+    }
+    
+    .form-control {
+      margin-right: 5px;
+    }
+    
+    /* Homepage styles */
+    #popular-items-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .popular-item {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+      width: 250px;
+      text-align: center;
+    }
+    
+    .popular-item img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    .popular-item h3 {
+      margin-top: 10px;
+    }
+    
+    /* Search results styles */
+    #search-results {
+      margin-top: 20px;
+    }
+    
+    /* View item styles */
+    #item-details {
+      margin-top: 20px;
+    }
+    
+    /* Locations styles */
+    .location-card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+    
+    .location-image {
+      max-width: 200px; 
+      height: auto;
+    }
+    .location-card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+    .location-image {
+      max-width: 200px; 
+      height: auto;
+    }
+    .popular-item {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+      width: 250px;
+      display: block; /* Changed from inline-block to block */
+      text-align: center;
+    }
+    .card-img-top {
+      width: 100%;
+      height: 200px; 
+      object-fit: cover; 
+    }
+    .edit_btn{
+      background-color: #838f60;
+    }
+    .title{
+      background-color: lightgray;
+    }
+    .highlight {
+      background-color: yellow; 
+      font-weight: bold;
+    }

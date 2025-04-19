@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="container">
+        <h1>Quiz</h1>
+        <div id="quiz">
+            <!-- Quiz data will be loaded here by JavaScript -->
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+     <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+{% endblock %}

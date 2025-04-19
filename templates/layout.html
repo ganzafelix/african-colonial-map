@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <!-- jQuery & jQuery UI -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Afromaps</title>
+</head>
+<body>
+
+        <nav class="navbar navbar-expand-lg navbar-light color">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Africa maps</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Welcome Page</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="/africa">Africa </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/colonies">Colonies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/quiz">Quiz </a>
+                    </li>
+                </ul>
+                <form class="d-flex" action="/search" method="GET">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    {% block scripts %}
+    {% endblock %}
+</body>
+</html>%          

@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="welcome-header">
+            <h1 class="welcome-title">Afromaps!</h1>
+            <p class="welcome-description">
+                Africa is a vast, vibrant continent with over 1.4 billion people and thousands of cultures - but did you know nearly every country in the continent was once colonized? <br>
+                In the <bold>Scramble for Africa</bold>, European powers raced to claim land, redraw borders, and control resources. This site helps you learn who colonized where, and when - through interactive maps.<br>
+                Choose whether to <bold>learn</bold> or <bold>challenge yourself with a quiz</bold>
+            </p>
+        </div>
+
+        <h2>Featured Locations</h2>
+        <div class="row">
+            {% for item in locations %}
+                <div class="col-md-4">
+                    <div class="location-card">
+                        <a href="/view/location/{{ item.Location_id }}">
+                            <img src="{{ item.Image }}" class="card-img-top" alt="{{ item.Location }} - Image">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="location-card-title">{{ item.Location }}</h5>
+                            <p class="location-card-description">{{ item.Description[:100] }}...</p>
+                            <a href="/view/location/{{ item.Location_id }}" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
