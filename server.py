@@ -2,7 +2,10 @@ from flask import Flask, render_template, jsonify, request, redirect, url_for
 
 app = Flask(__name__)
 
-colonies = []
+coloniesList = ['Algeria', 'Angola', 'Benin', 'Botswana', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cameroon', 'Central African Republic', 'Chad', 'Comoros', 'Democratic Republic of Congo',
+            'Republic of Congo', 'Djibouti', 'Egypt', 'Equitorial Guinea', 'Eritrea', 'Eswatini', 'Swaziland', 'Ethiopia', 'Gabon', 'Gambia', 'Ghana', 'Guinea', 'Guinea-Bissau', 'Ivory Coast', 
+             'Kenya',' Lesotho', 'Liberia', 'Libya', 'Madagascar', 'Malawi', 'Mali', 'Mauritania', 'Mauritius', 'Morocco', 'Mozambique', 'Namibia', 'Niger', 'Nigeria', 'Rwanda', 'Sao Tome and Principe',
+             'Senegal',' Seychelles', 'Seirra Leone', 'Somalia', 'South Africa', 'South Sudan', 'Sudan', 'Tanzania', 'Tunisia', 'Togo', 'Uganda', 'Zambia', 'Zimbabwe' ]
 
 # ROUTES
 @app.route('/')
@@ -30,45 +33,20 @@ def get_colonies():
 #search function
 @app.route('/search')
 def search():
-    query = request.args.get('q')
-    results = []
+    query = request.args.get('q', '')
+    wikilink = None  
     result_count = 0
 
     if query:
-        query = query.strip().lower()
-
-        for colony in colonies:
-            # Check if keys exist before accessing them
-            colonizer = colony.get('Colony', '').lower()
-            description = colony.get('Description', '').lower()
-            
-            matches = False
-            
-            highlighted_name = colony.get('Colony', 'N/A')
-            highlighted_description = colony.get('Description', 'N/A')
-
-            
-            if query in colonizer:
-                highlighted_name = highlight_text(highlighted_name, query)
-                matches = True
-                
-            if query in description:
-                highlighted_description = highlight_text(highlighted_description, query)
-                matches = True
-                
-            
-            if matches:
-                results.append({
-                    "title": highlighted_name,
-                    "id": colony.get('Location_id', 'N/A'),
-                    "type": "location",
-                    "description": highlighted_description,
-                    "image": colony.get('Image', '/static/images/placeholder.jpg'),
-                })
-                result_count += 1
-
-    return render_template('results.html', results=results, query=query, display_type='search', result_count=result_count)
-
+        query = query.strip()
+        query_lower = query.lower()
+        for colony in coloniesList:
+            if query_lower == colony.lower():
+                wikilink = "https://en.wikipedia.org/wiki/" + colony
+                result_count = 1
+                break
+    
+    return render_template('results.html', results=wikilink, query=query, display_type='search', result_count=result_count)
 
 def highlight_text(text, query):
     if not text or not query:
