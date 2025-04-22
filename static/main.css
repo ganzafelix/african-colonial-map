@@ -49,12 +49,12 @@ body {
 
 /* Welcome page */
 .welcome-section {
-  padding: 4rem 2rem;
+  padding: 3rem 2rem;
   background-color: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   max-width: 800px;
-  margin: 3rem auto;
+  margin: 0rem auto;
   text-align: center;
 }
 
