@@ -1,124 +1,162 @@
 /* General styles */
 body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f3f5e0;
-    }
-    
-    .container {
-      width: 80%;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    
-    /* Navbar styles */
-    .navbar {
-      background-color: #f8f9fa; /* Light gray background */
-      padding: 15px;
-    }
-    .color{
-      background-color: rgb(207, 219, 179);
-    }
-    
-    .navbar-brand {
-      font-weight: bold;
-      font-size: 1.5em;
-    }
-    
-    .navbar-nav .nav-link {
-      margin-right: 10px;
-    }
-    
-    .navbar-nav .nav-link:hover {
-      color: #007bff; /* Blue on hover */
-    }
-    
-    /* Search form styles */
-    .d-flex {
-      margin-left: auto; /* Push search bar to the right */
-    }
-    
-    .form-control {
-      margin-right: 5px;
-    }
-    
-    /* Homepage styles */
-    #popular-items-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    
-    .popular-item {
-      border: 1px solid #ccc;
-      padding: 10px;
-      margin: 10px;
-      width: 250px;
-      text-align: center;
-    }
-    
-    .popular-item img {
-      max-width: 100%;
-      height: auto;
-    }
-    
-    .popular-item h3 {
-      margin-top: 10px;
-    }
-    
-    /* Search results styles */
-    #search-results {
-      margin-top: 20px;
-    }
-    
-    /* View item styles */
-    #item-details {
-      margin-top: 20px;
-    }
-    
-    /* Locations styles */
-    .location-card {
-      border: 1px solid #ccc;
-      padding: 10px;
-      margin-bottom: 10px;
-      border-radius: 5px;
-    }
-    
-    .location-image {
-      max-width: 200px; 
-      height: auto;
-    }
-    .location-card {
-      border: 1px solid #ccc;
-      padding: 10px;
-      margin-bottom: 10px;
-      border-radius: 5px;
-    }
-    .location-image {
-      max-width: 200px; 
-      height: auto;
-    }
-    .popular-item {
-      border: 1px solid #ccc;
-      padding: 10px;
-      margin: 10px;
-      width: 250px;
-      display: block; /* Changed from inline-block to block */
-      text-align: center;
-    }
-    .card-img-top {
-      width: 100%;
-      height: 200px; 
-      object-fit: cover; 
-    }
-    .edit_btn{
-      background-color: #838f60;
-    }
-    .title{
-      background-color: lightgray;
-    }
-    .highlight {
-      background-color: yellow; 
-      font-weight: bold;
-    }
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f9f2;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Navbar styles */
+.navbar {
+  padding: 15px;
+}
+
+.color {
+  background-color: #fff700 !important;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.navbar-nav .nav-link {
+  margin-right: 10px;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #007bff;
+}
+
+.nav-link.active {
+  color: red !important;
+}
+
+/* Search bar */
+.d-flex {
+  margin-left: auto;
+}
+
+.form-control {
+  margin-right: 5px;
+}
+
+/* Welcome page */
+.welcome-section {
+  padding: 4rem 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  max-width: 800px;
+  margin: 3rem auto;
+  text-align: center;
+}
+
+.welcome-section h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #222;
+}
+
+.welcome-section .lead {
+  font-size: 1.2rem;
+  color: #444;
+}
+
+.welcome-section .btn-warning {
+  background-color: orange;
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  margin: 10px;
+}
+
+.welcome-section .btn-warning:hover {
+  background-color: darkorange;
+}
+
+/* Colonizer page */
+.note {
+  background-color: #fff1a8;
+  padding: 1rem;
+  border-left: 5px solid red;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.content {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.map-container img {
+  width: 700px;
+  max-width: 100%;
+  border: 2px solid #333;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.colonizer-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.colonizer-buttons button {
+  padding: 12px 16px;
+  font-size: 1rem;
+  background-color: transparent;
+  border: 2px solid orange;
+  color: red;
+  cursor: pointer;
+  border-radius: 6px;
+  text-align: left;
+  transition: all 0.2s ease-in-out;
+}
+
+.colonizer-buttons button:hover,
+.colonizer-buttons button.active {
+  background-color: orange;
+  color: white;
+}
+
+/* Highlight the active nav link */
+.active-link {
+  color: #000000 !important;  /* Deep purple, complementary to yellow */
+  font-weight: bold;
+  border-bottom: 2px solid #000000;
+}
+
+.lead {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #222;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.africa-map-img {
+  width: 800px;
+  max-width: 100%;
+  border: 2px solid #333;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.africa-video-img {
+  width: 500px;
+  max-width: 100%;
+  border: 2px solid #333;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}

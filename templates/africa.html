@@ -1,15 +1,28 @@
 {% extends "layout.html" %}
 
+{% block title %}Explore Africa | AfroMaps{% endblock %}
+
 {% block content %}
-    <div class="container">
-        <h1>Africa Map</h1>
-        <div id="location-list">
-            <!-- Africa maps data will be loaded here by JavaScript -->
-        </div>
+  <section class="africa-section">
+    <div class="text-center mb-4">
+        <p class="lead text-center">
+            Discover <strong>Africa as it is today</strong> — 54 independent countries, vibrant cities, and rich cultural diversity.<br><br>
+            Use the <strong>interactive map</strong> to <strong>search for any country</strong> and jump straight to its <strong>Wikipedia page</strong> for quick, detailed information.<br><br>
+            You can also learn more about the continent through our <strong>featured video</strong>.<br><br>
+            Once you've explored, head over to the <strong>Quiz page</strong> to <strong>test your knowledge</strong> and see how much you’ve learned!
+        </p>          
     </div>
 
-    <script src="{{ url_for('static', filename='app.js') }}"></script>
-     <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
+    <div class="row justify-content-center align-items-center gx-5">
+        <div class="col-md-8 text-center">
+          <img src="{{ url_for('static', filename='maps/africa.png') }}" alt="Map of Africa" class="africa-map-img" />
+        </div>
+        <div class="col-md-4 text-center">
+          <a href="https://www.youtube.com/results?search_query=all+54+countries+of+africa" target="_blank">
+            <img src="{{ url_for('static', filename='maps/video.jpg') }}" alt="Video on 54 countries of Africa" class="africa-video-img" />
+          </a>
+        </div>
+      </div>
+      
+      
 {% endblock %}

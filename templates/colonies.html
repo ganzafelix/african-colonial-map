@@ -1,15 +1,35 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    <div class="container">
-        <h1>Colonies</h1>
-        <div id="colonies-list">
-            <!-- Colonies data data will be loaded here by JavaScript -->
-        </div>
-    </div>
+  <main>
+    <p>
+      On this page, you can select a colonial power and instantly see a map of the African countries it controlled.
+      Choose a different colonizer, and watch the map update — simple, visual, and powerful.
+    </p>
+    <p class="note">
+      🧠 <strong>Note:</strong> Some African countries were colonized by <strong>more than one European power</strong>
+      over time. As you explore, you may notice the <strong>same country appearing under multiple colonizers</strong>.
+    </p>
 
-    <script src="{{ url_for('static', filename='app.js') }}"></script>
-     <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="content">
+      <div class="map-container">
+        <img src="{{ url_for('static', filename='maps/uncolonized.png') }}" alt="Uncolonized Africa" id="map" />
+      </div>
+      <div class="colonizer-buttons">
+        <button class="active" data-map="uncolonized">❌ Uncolonized</button>
+        <button data-map="britain">Great Britain</button>
+        <button data-map="france">France</button>
+        <button data-map="portugal">Portugal</button>
+        <button data-map="spain">Spain</button>
+        <button data-map="germany">Germany</button>
+        <button data-map="belgium">Belgium</button>
+        <button data-map="italy">Italy</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="{{ url_for('static', filename='colonies.js') }}"></script>
+</body>
+</html>
 
 {% endblock %}

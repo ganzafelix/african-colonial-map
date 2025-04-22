@@ -2,31 +2,25 @@ from flask import Flask, render_template, jsonify, request, redirect, url_for
 
 app = Flask(__name__)
 
-colonies = [
-    {
-        "Colonizer_id": 1,
-        "Colonizer": "France",
-        "Image": "/static/images/colony-regions1.jpg",
-        "Description": "The french mainly colonized the western region of africa, and the island of Madagascar",
-        
-    },
-    {
-        "Colonizer_id": 2,
-        "Colonizer": "Britain",
-        "Image": "/static/images/colony-regions2.jpg",
-        "Description": "The British mainly colonized the northen, eastern and southern regions of africa",
-        
-    }
-]
+colonies = []
 
 # ROUTES
 @app.route('/')
 def welcome():
-    top_3_locations = colonies[:3]  # Get the first three locations
-    return render_template('welcome.html', locations=top_3_locations)
+    return render_template('welcome.html')
 
-#@app.route('/locations')
-##   return render_template('locations.html', locations=locations)
+@app.route('/colonies')
+def colonies():
+    return render_template("colonies.html", active_page="colonies")
+
+@app.route('/quiz')
+def quiz():
+    return render_template("quiz.html", active_page="quiz")
+
+@app.route('/africa')
+def africa():
+    return render_template("africa.html", active_page="africa")
+
 
 # AJAX FUNCTIONS (modified to return location data)
 @app.route('/get_colonies', methods=['GET'])
