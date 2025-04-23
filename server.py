@@ -28,6 +28,38 @@ AFRICA_REGIONS = {
     ]
 }
 
+COLONIZER_COUNTRIES_DICT = {
+    "Britain": [
+        "Egypt", "Sudan", "South Sudan", "Kenya", "Uganda", "Tanzania",
+        "Malawi", "Zambia", "Zimbabwe", "Botswana", "South Africa", "Lesotho",
+        "Eswatini", "Ghana", "Nigeria", "Sierra Leone", "The Gambia", "Somalia", "Libya"
+    ],
+    "France": [
+        "Algeria", "Morocco", "Tunisia", "Mauritania", "Mali", "Niger", "Chad",
+        "Central African Republic", "Republic of the Congo", "Gabon", "Senegal",
+        "Guinea", "Ivory Coast", "Burkina Faso", "Benin", "Togo", "Madagascar", "Djibouti"
+    ],
+    "Portugal": [
+        "Angola", "Mozambique", "Guinea-Bissau", "Cape Verde", "São Tomé and Príncipe"
+    ],
+    "Germany": [
+        "Namibia", "Tanzania", "Cameroon", "Togo", "Rwanda", "Burundi"
+    ],
+    "Italy": [
+        "Libya", "Eritrea", "Somalia"
+    ],
+    "Belgium": [
+        "Democratic Republic of the Congo", "Rwanda", "Burundi"
+    ],
+    "Spain": [
+        "Western Sahara", "Equatorial Guinea"
+    ],
+    "Uncolonized": [
+        "Ethiopia", "Liberia"
+    ]
+}
+
+
 # ROUTES
 @app.route('/')
 def welcome():
@@ -53,11 +85,19 @@ def who_colonized_it():
 def africa():
     return render_template("africa.html", active_page="africa")
 
+@app.route('/score')
+def score():
+    return render_template("score.html", active_page="quiz")
+
 
 # AJAX FUNCTIONS (modified to return location data)
 @app.route('/get_colonies', methods=['GET'])
 def get_colonies():
     return jsonify(locations=colonies)
+
+@app.route("/data/colonizers")
+def get_colonizer_country_list():
+    return jsonify(COLONIZER_COUNTRIES_DICT)
 
 @app.route('/data/regions')
 def get_regions():

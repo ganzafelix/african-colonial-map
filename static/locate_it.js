@@ -3,6 +3,10 @@ let incorrectCount = 0;
 let results = [];
 
 $(document).ready(function () {
+  // Clear previous quiz data
+localStorage.removeItem("locateItScore");
+localStorage.removeItem("colonizerScore");
+
   $.getJSON("/data/regions", function (regions) {
     // Render region drop zones
     for (const region in regions) {
@@ -56,15 +60,37 @@ $(document).ready(function () {
 
         const isCorrect = correctRegion === selectedRegion;
 
+        const icon = isCorrect ? "✅" : "❌";
+        const $feedbackIcon = $(`<span class="ms-2 fs-3 feedback-icon">${icon}</span>`);
+        $dropBox.append($feedbackIcon);
+
+      // Fade out and remove after 1 second
+      setTimeout(() => {
+        $feedbackIcon.fadeOut(400, () => $feedbackIcon.remove());
+      }, 1000);
+
+        console.log(isCorrect);
+
         // Set drop box color based on result — stays colored
         if (isCorrect) {
-          $dropBox.css("background-color", "#b3e6b3"); // ✅ green
           correctCount++;
-          results.push({ country: countryName, correct: true });
+          console.log("this was correct");
+          results.push({
+            country: countryName,
+            correct: true,
+            region: correctRegion,
+            guess: selectedRegion
+          });
         } else {
-          $dropBox.css("background-color", "#f4cccc"); // ❌ red
+          
           incorrectCount++;
-          results.push({ country: countryName, correct: false });
+          console.log("this was incorrect");
+          results.push({
+            country: countryName,
+            correct: false,
+            region: correctRegion,
+            guess: selectedRegion
+          });
         }
 
         // Remove the dragged country
