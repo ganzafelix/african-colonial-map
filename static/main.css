@@ -160,3 +160,34 @@ body {
   border-radius: 10px;
   transition: all 0.3s ease;
 }
+
+.droppable {
+  width: 100%;
+  min-height: 100px;
+  background: #e0e0e0;
+  border: 2px dashed #999;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.draggable {
+  width: 70px;
+  height: 70px;
+  padding: 5px;
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: move;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-size: 14px;
+  text-align: center;
+  word-break: break-word;
+}
+
