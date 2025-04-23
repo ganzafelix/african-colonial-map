@@ -1,0 +1,113 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Location Quiz</title>
+  <style>
+    .droppable {
+      width: 150px;
+      height: 100px;
+      background: #e0e0e0;
+      border: 2px dashed #999;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    div{
+      padding: 5px;
+    }
+    .draggable {
+      width: 70px;  /* Reduced from 100px */
+      height: 70px; /* Reduced from 100px */
+      padding: 5px; /* Reduced padding */
+      background: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: move;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      font-size: 14px; /* Smaller font */
+      text-align: center;
+      word-break: break-word; /* Handle long country names */
+    }
+
+   </style>
+  <!-- JQuery -->
+   <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+   <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+   <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous"> 
+  <script src="{{ url_for('static', filename='quiz.js') }}"></script>
+</head>
+<body>
+  <div id="quiz2">
+
+  <h1>Where is it?</h1>
+  <p>Drag each African country into the bucket of the region it belong to.</p>
+  <p>Learn the present — one country at a time.</p>
+  <div class="row">
+    <div class = "col">
+      <div class="ui-widget-content draggable" id="Liberia">Liberia</div>
+    </div>
+    <div class = "col">
+      <div class="ui-widget-content draggable" id="Rwanda">Rwanda</div>
+    </div>
+    <div class = "col">
+      <div class="ui-widget-content draggable" id="Egypt">Egypt</div>
+    </div>
+    <div class = "col">
+      <div class="ui-widget-content draggable" id="Ethiopia">Ethiopia</div>
+    </div>
+    <div class = "col">
+      <div class="ui-widget-content draggable" id="Mali">Mali</div>
+    </div>
+  </div>
+  <div class ="row">
+    <div class = "col">
+      <div class="ui-widget-content draggable" id="Lesotho">Lesotho</div>
+    </div>
+    <div class = "col">
+      <div class="ui-widget-content draggable" id="Ghana">Ghana</div>
+    </div>
+    <div class = "col">
+      <div class="ui-widget-content draggable" id="Libya">Libya</div>
+    </div>
+    <div class = "col">
+      <div class="ui-widget-content draggable" id="Chad">Chad</div>
+    </div>
+    <div class = "col">
+      <div class="ui-widget-content draggable" id="Eritrea">Eritrea</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class = "col">
+      <div class="droppable ui-widget-header"   location="North Africa">North Africa</div>
+    </div>
+    <div class ="col">
+      <div class="col ui-widget-header droppable"  location="South Africa">South Africa</div>
+    </div>
+    <div class ="col">
+      <div class="col ui-widget-header droppable"  location="East Africa">East Africa</div>
+    </div>
+    <div class ="col">
+      <div class="col ui-widget-header droppable"  location="West Africa">West Africa</div>
+    </div>
+    <div class ="col">
+      <div class="col ui-widget-header droppable"  location="Central Africa">Central Africa</div>
+    </div>
+  </div>
+  <div id="result"></div>
+  </div>
+</body>
+</html>
+
+{% endblock %}

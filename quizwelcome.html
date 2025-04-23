@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Welcome to AfroMaps Quiz</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      text-align: center;
+      padding: 50px;
+    }
+    .btn {
+      margin: 10px;
+      padding: 15px 30px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to AfroMaps Quiz!</h1>
+  <p>Test your knowledge on African history and geography.</p>
+
+  <a href="/quiz" class="btn btn-primary">Start Colonizers Quiz</a>
+  <a href="/quiz2" class="btn btn-success">Start Location Quiz</a>
+</body>
+</html>
+
+{% endblock %}
