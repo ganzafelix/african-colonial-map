@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="welcome-section">
+  <h2>📍 Locate It</h2>
+  <p class="lead">
+    Can you spot African countries on the map? Drag each country into its correct region!
+    <br>No pressure, just precision. Let’s see what you’ve got!
+  </p>
+
+  <div id="quiz-container" class="mt-5">
+    <div id="regions" class="content"></div>
+    <hr class="my-4" />
+    <h4 class="mb-3">Drag These Countries</h4>
+    <div id="country-pool" class="d-flex flex-wrap"></div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='locate_it.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+{% endblock %}

@@ -160,3 +160,23 @@ body {
   border-radius: 10px;
   transition: all 0.3s ease;
 }
+
+/* Add cursor styling */
+.drop-box {
+  cursor: default;
+  transition: background-color 0.3s ease;
+}
+
+.drop-box.ui-droppable-hover {
+  cursor: grab;
+}
+
+/* Optional: extra spacing/visuals */
+.region-drop-zone {
+  border: 2px dashed #ccc;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #fdfdfd;
+  margin-bottom: 20px;
+}
+
