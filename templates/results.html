@@ -1,22 +1,27 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    {% if display_type == 'search' %}
-        <h1>Search Results</h1>
-        {% if query %}
-            {% if results %}
-                <p>Showing {{ result_count }} results for: <strong>{{ query }}</strong></p>
-                <div class="row">
-                    <p>Showing {{ result_count }} result(s) for: <strong>{{ query }}</strong></p>
-                    <a href="{{ results }}" target="_blank">View Wikipedia Page for {{ query }}</a>
+  {% if display_type == 'search' %}
+    <h1>Search Results</h1>
 
-                </div>
-            {% else %}
-                <p>No results found for: <strong>{{ query }}</strong></p>
-            {% endif %}
-        {% else %}
-            <p>Please enter a search term.</p>
-        {% endif %}
-
+    {% if not query %}
+      <p>Please enter a search term.</p>
+    {% else %}
+      {% if result_count > 0 %}
+        <p>Showing {{ result_count }} result{{ 's' if result_count != 1 }} for: <strong>{{ query }}</strong></p>
+        <ul>
+          {% for item in results %}
+            <li>
+              <a href="{{ item.wikilink }}" target="_blank">
+                {{ item.name }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>No results found for: <strong>{{ query }}</strong></p>
+      {% endif %}
     {% endif %}
+
+  {% endif %}
 {% endblock %}
