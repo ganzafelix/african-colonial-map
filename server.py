@@ -106,20 +106,26 @@ def get_regions():
 #search function
 @app.route('/search')
 def search():
-    query = request.args.get('q', '')
-    wikilink = None  
-    result_count = 0
+    raw_q = request.args.get('q', '').strip()
+    query = raw_q.lower()
+    matches = []
 
     if query:
-        query = query.strip()
-        query_lower = query.lower()
         for colony in coloniesList:
-            if query_lower == colony.lower():
-                wikilink = "https://en.wikipedia.org/wiki/" + colony
-                result_count = 1
-                break
-    
-    return render_template('results.html', results=wikilink, query=query, display_type='search', result_count=result_count)
+            if query in colony.lower():
+                matches.append({
+                    'name': colony,
+                    'wikilink': f'https://en.wikipedia.org/wiki/{colony.replace(" ", "_")}'
+                })
+
+    result_count = len(matches)
+    return render_template(
+        'results.html',
+        query=raw_q,
+        results=matches,
+        display_type='search',
+        result_count=result_count
+    )
 
 def highlight_text(text, query):
     if not text or not query:
