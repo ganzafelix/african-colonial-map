@@ -7,6 +7,59 @@ coloniesList = ['Algeria', 'Angola', 'Benin', 'Botswana', 'Burkina Faso', 'Burun
              'Kenya',' Lesotho', 'Liberia', 'Libya', 'Madagascar', 'Malawi', 'Mali', 'Mauritania', 'Mauritius', 'Morocco', 'Mozambique', 'Namibia', 'Niger', 'Nigeria', 'Rwanda', 'Sao Tome and Principe',
              'Senegal',' Seychelles', 'Seirra Leone', 'Somalia', 'South Africa', 'South Sudan', 'Sudan', 'Tanzania', 'Tunisia', 'Togo', 'Uganda', 'Zambia', 'Zimbabwe' ]
 
+AFRICA_REGIONS = {
+    "Northern Africa": [
+        "Algeria", "Egypt", "Libya", "Mauritania", "Morocco", "Sudan", "Tunisia", "Western Sahara"
+    ],
+    "Western Africa": [
+        "Benin", "Burkina Faso", "Cape Verde", "Côte d'Ivoire", "Gambia", "Ghana", "Guinea",
+        "Guinea-Bissau", "Liberia", "Mali", "Niger", "Nigeria", "Senegal", "Sierra Leone", "Togo"
+    ],
+    "Central Africa": [
+        "Angola", "Cameroon", "Central African Republic", "Chad", "Congo", "Democratic Republic of the Congo",
+        "Equatorial Guinea", "Gabon", "São Tomé and Príncipe"
+    ],
+    "Eastern Africa": [
+        "Burundi", "Comoros", "Djibouti", "Eritrea", "Ethiopia", "Kenya", "Madagascar", "Malawi",
+        "Mauritius", "Mozambique", "Rwanda", "Seychelles", "Somalia", "South Sudan", "Tanzania", "Uganda", "Zambia", "Zimbabwe"
+    ],
+    "Southern Africa": [
+        "Botswana", "Eswatini", "Lesotho", "Namibia", "South Africa"
+    ]
+}
+
+COLONIZER_COUNTRIES_DICT = {
+    "Britain": [
+        "Egypt", "Sudan", "South Sudan", "Kenya", "Uganda", "Tanzania",
+        "Malawi", "Zambia", "Zimbabwe", "Botswana", "South Africa", "Lesotho",
+        "Eswatini", "Ghana", "Nigeria", "Sierra Leone", "The Gambia", "Somalia", "Libya"
+    ],
+    "France": [
+        "Algeria", "Morocco", "Tunisia", "Mauritania", "Mali", "Niger", "Chad",
+        "Central African Republic", "Republic of the Congo", "Gabon", "Senegal",
+        "Guinea", "Ivory Coast", "Burkina Faso", "Benin", "Togo", "Madagascar", "Djibouti"
+    ],
+    "Portugal": [
+        "Angola", "Mozambique", "Guinea-Bissau", "Cape Verde", "São Tomé and Príncipe"
+    ],
+    "Germany": [
+        "Namibia", "Tanzania", "Cameroon", "Togo", "Rwanda", "Burundi"
+    ],
+    "Italy": [
+        "Libya", "Eritrea", "Somalia"
+    ],
+    "Belgium": [
+        "Democratic Republic of the Congo", "Rwanda", "Burundi"
+    ],
+    "Spain": [
+        "Western Sahara", "Equatorial Guinea"
+    ],
+    "Uncolonized": [
+        "Ethiopia", "Liberia"
+    ]
+}
+
+
 # ROUTES
 @app.route('/')
 def welcome():
@@ -20,15 +73,35 @@ def colonies():
 def quiz():
     return render_template("quiz.html", active_page="quiz")
 
+@app.route('/locate-it')
+def locate_it():
+    return render_template("locate_it.html", active_page="quiz")
+
+@app.route('/who-colonized-it')
+def who_colonized_it():
+    return render_template("who_colonized_it.html", active_page="quiz")
+
 @app.route('/africa')
 def africa():
     return render_template("africa.html", active_page="africa")
+
+@app.route('/score')
+def score():
+    return render_template("score.html", active_page="quiz")
 
 
 # AJAX FUNCTIONS (modified to return location data)
 @app.route('/get_colonies', methods=['GET'])
 def get_colonies():
     return jsonify(locations=colonies)
+
+@app.route("/data/colonizers")
+def get_colonizer_country_list():
+    return jsonify(COLONIZER_COUNTRIES_DICT)
+
+@app.route('/data/regions')
+def get_regions():
+    return jsonify(AFRICA_REGIONS)
 
 #search function
 @app.route('/search')
@@ -44,6 +117,15 @@ def search():
                     'name': colony,
                     'wikilink': f'https://en.wikipedia.org/wiki/{colony.replace(" ", "_")}'
                 })
+
+    result_count = len(matches)
+    return render_template(
+        'results.html',
+        query=raw_q,
+        results=matches,
+        display_type='search',
+        result_count=result_count
+    )
 
     result_count = len(matches)
     return render_template(

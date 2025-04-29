@@ -3,26 +3,38 @@
 {% block title %}Explore Africa | AfroMaps{% endblock %}
 
 {% block content %}
-  <section class="africa-section">
-    <div class="text-center mb-4">
-        <p class="lead text-center">
-            Discover <strong>Africa as it is today</strong> — 54 independent countries, vibrant cities, and rich cultural diversity.<br><br>
-            Use the <strong>interactive map</strong> to <strong>search for any country</strong> and jump straight to its <strong>Wikipedia page</strong> for quick, detailed information.<br><br>
-            You can also learn more about the continent through our <strong>featured video</strong>.<br><br>
-            Once you've explored, head over to the <strong>Quiz page</strong> to <strong>test your knowledge</strong> and see how much you’ve learned!
-        </p>          
+  <main>
+    <p class="lead text-center">
+      Discover <strong>Africa as it is today</strong> — 54 independent countries, vibrant cities, and rich cultural diversity.<br><br>
+      Use the interactive map to <strong>search for any country</strong> and jump straight to its <strong>Wikipedia page</strong> for quick, detailed information.<br><br>
+      Once you've explored, head over to the <strong>Quiz page</strong> to <strong>test your knowledge</strong> and see how much you’ve learned!
+    </p>
+
+    <p class="note text-center mt-3">
+      🧾 <strong>Disclaimer:</strong> Country borders and regions shown here follow designations as seen on the <strong>African Union website</strong>.
+    </p>
+
+    <div class="content mt-4">
+      <div class="map-container text-center mb-3">
+        <img src="{{ url_for('static', filename='maps/africa.png') }}" alt="Map of Africa" id="map" />
+      </div>
+
+      <div class="region-buttons">
+        <button class="active" data-map="africa">Africa</button>
+        <button data-map="north">Northern</button>
+        <button data-map="central">Central</button>
+        <button data-map="south">Southern</button>
+        <button data-map="east">Eastern</button>
+        <button data-map="west">Western</button>
+      </div>
     </div>
 
-    <div class="row justify-content-center align-items-center gx-5">
-        <div class="col-md-8 text-center">
-          <img src="{{ url_for('static', filename='maps/africa.png') }}" alt="Map of Africa" class="africa-map-img" />
-        </div>
-        <div class="col-md-4 text-center">
-          <a href="https://www.youtube.com/results?search_query=all+54+countries+of+africa" target="_blank">
-            <img src="{{ url_for('static', filename='maps/video.jpg') }}" alt="Video on 54 countries of Africa" class="africa-video-img" />
-          </a>
-        </div>
-      </div>
-      
-      
+    <div class="text-center">
+      <a href="https://au.int/en/member_states/countryprofiles2" target="_blank" class="btn btn-primary">
+        Learn More About African Countries
+      </a>
+    </div>
+  </main>
+
+  <script src="{{ url_for('static', filename='africa.js') }}"></script>
 {% endblock %}

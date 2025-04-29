@@ -1,15 +1,19 @@
 {% extends "layout.html" %}
-
 {% block content %}
-    <div class="container">
-        <h1>Quiz</h1>
-        <div id="quiz">
-            <!-- Quiz data will be loaded here by JavaScript -->
-        </div>
-    </div>
-
-    <script src="{{ url_for('static', filename='app.js') }}"></script>
-     <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
+<div class="welcome-section">
+  <h2>AfroMaps Quiz</h2>
+  <p class="lead mt-3">
+    Think you know Africa? Drag and drop your way through two fun challenges:
+    <br />
+    📍 <strong>Locate It</strong> – Match countries to their place on the map.
+    <br />
+    🏳 <strong>Who Colonized It?</strong> – Sort countries into the right colonizer’s bucket.
+    <br />
+    Learn as you play — it’s history made interactive.
+  </p>
+  <div class="mt-4">
+    <a href="{{ url_for('locate_it') }}" class="btn btn-warning">📍 Start “Locate It”</a>
+    <a href="{{ url_for('who_colonized_it') }}" class="btn btn-warning">🏳 Start “Who Colonized It?”</a>
+  </div>
+</div>
 {% endblock %}

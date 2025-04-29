@@ -130,6 +130,31 @@ body {
   color: white;
 }
 
+.region-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.region-buttons button {
+  padding: 12px 16px;
+  font-size: 1rem;
+  background-color: transparent;
+  border: 2px solid orange;
+  color: red;
+  cursor: pointer;
+  border-radius: 6px;
+  text-align: left;
+  transition: all 0.2s ease-in-out;
+}
+
+.region-buttons button:hover,
+.region-buttons button.active {
+  background-color: orange;
+  color: white;
+}
+
 /* Highlight the active nav link */
 .active-link {
   color: #000000 !important;  /* Deep purple, complementary to yellow */
@@ -160,3 +185,17 @@ body {
   border-radius: 10px;
   transition: all 0.3s ease;
 }
+
+/* Optional: extra spacing/visuals */
+.region-drop-zone {
+  border: 2px dashed #ccc;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #fdfdfd;
+  margin-bottom: 20px;
+}
+
+.draggable {
+  cursor: move !important;
+}
+
