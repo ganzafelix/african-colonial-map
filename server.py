@@ -9,22 +9,23 @@ coloniesList = ['Algeria', 'Angola', 'Benin', 'Botswana', 'Burkina Faso', 'Burun
 
 AFRICA_REGIONS = {
     "Northern Africa": [
-        "Algeria", "Egypt", "Libya", "Mauritania", "Morocco", "Sudan", "Tunisia", "Western Sahara"
+        "Algeria", "Egypt", "Libya", "Tunisia", "Mauritania", "Morocco", "Western Sahara"
     ],
     "Western Africa": [
         "Benin", "Burkina Faso", "Cape Verde", "Côte d'Ivoire", "Gambia", "Ghana", "Guinea",
         "Guinea-Bissau", "Liberia", "Mali", "Niger", "Nigeria", "Senegal", "Sierra Leone", "Togo"
     ],
     "Central Africa": [
-        "Angola", "Cameroon", "Central African Republic", "Chad", "Congo", "Democratic Republic of the Congo",
-        "Equatorial Guinea", "Gabon", "São Tomé and Príncipe"
+        "Cameroon", "Central African Republic", "Chad", "Republic of the Congo",
+        "Democratic Republic of the Congo", "Equatorial Guinea", "Gabon", "São Tomé and Príncipe"
     ],
     "Eastern Africa": [
-        "Burundi", "Comoros", "Djibouti", "Eritrea", "Ethiopia", "Kenya", "Madagascar", "Malawi",
-        "Mauritius", "Mozambique", "Rwanda", "Seychelles", "Somalia", "South Sudan", "Tanzania", "Uganda", "Zambia", "Zimbabwe"
+        "Burundi", "Comoros", "Djibouti", "Eritrea", "Ethiopia", "Kenya", "Madagascar", 
+        "Mauritius", "Rwanda", "Seychelles", "Somalia", "South Sudan", "Tanzania",
+        "Uganda", "Mayotte", "Réunion","Sudan"
     ],
     "Southern Africa": [
-        "Botswana", "Eswatini", "Lesotho", "Namibia", "South Africa"
+        "Botswana", "Eswatini", "Lesotho", "Namibia", "South Africa","Angola", "Zambia","Zimbabwe","Mozambique", "Malawi"
     ]
 }
 
@@ -32,12 +33,13 @@ COLONIZER_COUNTRIES_DICT = {
     "Britain": [
         "Egypt", "Sudan", "South Sudan", "Kenya", "Uganda", "Tanzania",
         "Malawi", "Zambia", "Zimbabwe", "Botswana", "South Africa", "Lesotho",
-        "Eswatini", "Ghana", "Nigeria", "Sierra Leone", "The Gambia", "Somalia", "Libya"
+        "Eswatini", "Ghana", "Nigeria", "Sierra Leone", "The Gambia", "Somalia", "Libya", "Seychelles",
+        "Mauritius", "Togo","Cameroon","Namibia", "Eritrea"
     ],
     "France": [
         "Algeria", "Morocco", "Tunisia", "Mauritania", "Mali", "Niger", "Chad",
         "Central African Republic", "Republic of the Congo", "Gabon", "Senegal",
-        "Guinea", "Ivory Coast", "Burkina Faso", "Benin", "Togo", "Madagascar", "Djibouti"
+        "Guinea", "Ivory Coast", "Burkina Faso", "Benin", "Togo", "Madagascar", "Djibouti", "Comoros", "Cameroon","Libya"
     ],
     "Portugal": [
         "Angola", "Mozambique", "Guinea-Bissau", "Cape Verde", "São Tomé and Príncipe"
@@ -52,7 +54,7 @@ COLONIZER_COUNTRIES_DICT = {
         "Democratic Republic of the Congo", "Rwanda", "Burundi"
     ],
     "Spain": [
-        "Western Sahara", "Equatorial Guinea"
+        "Western Sahara", "Equatorial Guinea", "Morocco"
     ],
     "Uncolonized": [
         "Ethiopia", "Liberia"
