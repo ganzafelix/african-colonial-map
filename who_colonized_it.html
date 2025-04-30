@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="welcome-section text-center" id="quiz2">
+  <h2>🏳 Who Colonized It?</h2>
+  <p>Drag each African country into the correct colonizer's bucket!</p>
+  <div id="country-pool" class="d-flex flex-wrap justify-content-center gap-2"></div>
+  <br>
+  <div id="colonizer-buckets" class="content d-flex flex-wrap justify-content-center gap-3 mb-5"></div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='who_colonized_it.js') }}"></script>
+{% endblock %}

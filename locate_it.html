@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="welcome-section text-center" id="quiz1">
+  <h2>📍 Location Quiz</h2>
+  <p class="lead">Drag each country into its correct region!</p>
+
+  <div id="quiz-container" class="mt-5">
+    <div id="country-pool" class="d-flex flex-wrap justify-content-center gap-2 mb-4"></div>
+    <div id="regions" class="d-flex flex-wrap justify-content-center gap-3 mb-5"></div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='locate_it.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+{% endblock %}
