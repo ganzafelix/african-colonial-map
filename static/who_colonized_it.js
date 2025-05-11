@@ -68,7 +68,16 @@ localStorage.removeItem("colonizerScore");
         const icon = isCorrect ? "✅" : "❌";
         const $icon = $(`<span class="ms-2 fs-3">${icon}</span>`);
         $dropZone.append($icon);
-        setTimeout(() => $icon.fadeOut(400, () => $icon.remove()), 1000);
+
+        //highlight 
+        const highlightClass = isCorrect? "highlight-correct" : "highlight-incorrect";
+        $dropZone
+          .removeClass("highlight-correct highlight-incorrect")
+          .addClass(highlightClass)
+        setTimeout(() => {
+          $icon.fadeOut(400, () => $icon.remove());
+          $dropZone.removeClass(highlightClass);
+        },1000);
 
         // Record result
         results.push({

@@ -64,9 +64,16 @@ localStorage.removeItem("colonizerScore");
         const $feedbackIcon = $(`<span class="ms-2 fs-3 feedback-icon">${icon}</span>`);
         $dropBox.append($feedbackIcon);
 
+        //add highlighr based on result 
+        const highlightClass = isCorrect? "highlight-correct" : "highlight-incorrect";
+        $dropBox
+          .removeClass("highlight-correct highlight-incorrect")
+          .addClass(highlightClass);
+
       // Fade out and remove after 1 second
       setTimeout(() => {
         $feedbackIcon.fadeOut(400, () => $feedbackIcon.remove());
+        $dropBox.removeClass(highlightClass);
       }, 1000);
 
         console.log(isCorrect);

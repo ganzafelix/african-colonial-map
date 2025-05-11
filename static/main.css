@@ -1,9 +1,13 @@
 /* General styles */
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: #f0f9f2;
   margin: 0;
   padding: 0;
+}
+
+strong {
+  font-weight: 700;
 }
 
 .container {
@@ -197,5 +201,15 @@ body {
 
 .draggable {
   cursor: move !important;
+}
+
+.highlight-correct {
+  background-color: #d4edda !important; /* light green */
+  border: 2px solid #28a745 !important; /* green */
+}
+
+.highlight-incorrect {
+  background-color: #f8d7da !important; /* light red */
+  border: 2px solid #dc3545 !important; /* red */
 }
 
